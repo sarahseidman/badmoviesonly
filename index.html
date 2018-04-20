@@ -35,7 +35,7 @@
 			<h2 id="list-title">My List</h2>
 			<ul v-show="moviesList">
 				<li v-for="movie in moviesList">
-					<button v-on:click="remove(movie)">X</button> {{movie}}
+					<button id="remover" v-on:click="remove(movie)">X</button> {{movie}}
 				</li>
 			</ul>
 		</div>
