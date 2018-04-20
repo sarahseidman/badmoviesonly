@@ -7,7 +7,10 @@
 </head>
 
 <body>
-	<h1 id="banner">BAD MOVIES ONLY</h1>
+	
+	<div id="heading">
+	<h1 id="banner">BAD MOVIES ONLY</h1> <img src="https://i.imgur.com/Wucf6hl.png" width="150px">
+	</div>
 
 	<div id="display">
 
@@ -17,10 +20,12 @@
 		</div>
 	
 		<div id="searched-movie" v-show="searchedmovie.obj">
-			<h3>{{searchedmovie.title}}</h3>
-			<h6>Directed by {{searchedmovie.dir}}</h6>
+			<!-- <h3>{{searchedmovie.title}}</h3> -->
+			<br>
+			<img v-bind:src="searchedmovie.link" height="300px">
+			<p>Directed by {{searchedmovie.dir}}</p>
 			<p>Starring: {{searchedmovie.stars}}</p>
-			<p>Metacritic score: {{searchedmovie.rating}}</p>
+			<p id="score">Metacritic score: {{searchedmovie.rating}}</p>
 
 			<button v-on:click="addToList" v-show="searchedmovie.bad">Add to my list</button>
 

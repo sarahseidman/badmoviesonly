@@ -4,6 +4,7 @@ var movies = new Vue({
  		searchedmovie: {
  			obj: null,
  			title: "",
+ 			link: "",
  			dir: "",
  			stars: "",
  			rating: null,
@@ -20,9 +21,15 @@ var movies = new Vue({
  			axios.get(url).then(function(response){
             movies.searchedmovie.obj = response.data;
             movies.searchedmovie.title = response.data.Title;
+            movies.searchedmovie.link = response.data.Poster;
             movies.searchedmovie.dir = response.data.Director;
             movies.searchedmovie.stars = response.data.Actors;
-            movies.searchedmovie.rating = parseInt(response.data.Metascore);
+            if(parseInt(response.data.Metascore)){
+            	movies.searchedmovie.rating = parseInt(response.data.Metascore);
+            }
+            else {
+            	movies.searchedmovie.rating = "not available";
+            }
             movies.checkScore(movies.searchedmovie.rating);
  			})
  			
@@ -30,6 +37,7 @@ var movies = new Vue({
  		checkScore: function(score){
  			if(score > 50){
  				this.searchedmovie.bad = false;
+ 				
  			}
  			else {
  				this.searchedmovie.bad = true;
@@ -37,6 +45,7 @@ var movies = new Vue({
  		},
  		addToList: function(){
  			movies.moviesList.push(movies.searchedmovie.title);
+ 			movies.searchedmovie.bad = false;
 
  		},
  		remove: function(toRemove){

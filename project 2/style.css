@@ -4,6 +4,8 @@ body {
 
 h1 {
 	font-family: sans-serif;
+	float: left;
+	font-size: 50px;
 }
 
 h2 {
@@ -15,22 +17,29 @@ ul {
 	list-style-type: none;
 }
 
-/*#display {
-	display: flex;
-	flex-direction: row;
-}*/
+#score bad {
+	font-color: black;
+}
+
+#score good {
+	font-color: red;
+}
 
 #searcher {
 	position: left;
+	top: 100px;
 }
-
-/*#list {
-	position: right;
-}*/
 
 #list {
     position: absolute;
-    top: 30px;
-    left: 650px;
+    top: 100px;
+    left: 675px;
     
+}
+
+#heading {
+	overflow: auto;
+}
+#heading img {
+	float: left;
 }
