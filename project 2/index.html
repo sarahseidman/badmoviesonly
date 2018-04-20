@@ -20,12 +20,11 @@
 		</div>
 	
 		<div id="searched-movie" v-show="searchedmovie.obj">
-			<!-- <h3>{{searchedmovie.title}}</h3> -->
 			<br>
 			<img v-bind:src="searchedmovie.link" height="300px">
 			<p>Directed by {{searchedmovie.dir}}</p>
 			<p>Starring: {{searchedmovie.stars}}</p>
-			<p id="score">Metacritic score: {{searchedmovie.rating}}</p>
+			<p v-bind:style="{color: scoreColor}">Metacritic score: {{searchedmovie.rating}}</p>
 
 			<button v-on:click="addToList" v-show="searchedmovie.bad">Add to my list</button>
 
@@ -40,7 +39,6 @@
 				</li>
 			</ul>
 		</div>
-		<!-- <pre>{{$data}}</pre> -->
 	</div>
 
 

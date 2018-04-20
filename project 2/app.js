@@ -12,6 +12,7 @@ var movies = new Vue({
  		},
  		find: "",
  		moviesList: [],
+ 		scoreColor: "black"
 
  	},
 
@@ -37,10 +38,11 @@ var movies = new Vue({
  		checkScore: function(score){
  			if(score > 50){
  				this.searchedmovie.bad = false;
- 				
+ 				this.scoreColor = "red";
  			}
  			else {
  				this.searchedmovie.bad = true;
+ 				this.scoreColor = "green";
  			}
  		},
  		addToList: function(){
