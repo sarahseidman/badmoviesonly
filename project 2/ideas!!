@@ -1,6 +1,0 @@
-ideas!!
-
--movie search engine that gives opinions on the movies based on specifically my tastes
--make a playlist/watchlist -- using OMDB API
-	movie posters show up on the screen (at random) and you can click on the poster to select, building your watchlist
-	shows only movies that received very low scores (below 25 metascore)
