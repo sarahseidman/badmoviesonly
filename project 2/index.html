@@ -7,20 +7,24 @@
 </head>
 
 <body>
-	<h1 id="banner">BAD MOVIES DATABASE</h1>
+	<h1 id="banner">BAD MOVIES ONLY</h1>
 
 	<div id="display">
 
-		<input placeholder="Search" v-model="search">
+
+		<input placeholder="Search" v-model="find">
+		<button v-on:click="findMovie">Go</button>
 	
-		<div id="movie1">
-			<img>
-			<p>{{ movies[0].title }}</p>
+		<div id="searched-movie" v-show="searchedmovie.obj">
+			<h3>{{searchedmovie.title}}</h3>
+			<h6>Directed by {{searchedmovie.dir}}</h6>
+			<p>Starring: {{searchedmovie.stars}}</p>
+			<p>Metacritic score: {{searchedmovie.rating}}</p>
+
+			<button v-show="searchedmovie.bad">Add to my list</button>
+
 		</div>
 
-		<div id="movie2"></div>
-
-		<div id="movie3"></div>
 
 		<div id="list">
 			<h2 id="list-title">My List</h2>
@@ -28,7 +32,10 @@
 				
 			</ul>
 		</div>
+		<!-- <pre>{{$data}}</pre> -->
 	</div>
+
+
 	
 	<script src="app.js"></script>
 

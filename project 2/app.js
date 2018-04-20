@@ -1,23 +1,43 @@
 var movies = new Vue({
  	el: "#display",
  	data: {
- 		searched-movie: []
- 		movies: [
- 		{title: "Titanic"}],
- 		search: ""
+ 		searchedmovie: {
+ 			obj: null,
+ 			title: "",
+ 			dir: "",
+ 			stars: "",
+ 			rating: null,
+ 			bad: true
+ 		},
+ 		find: "",
+ 		movieslist: [],
 
  	},
 
  	methods: {
- 		search: function(){
+ 		findMovie: function(){ 			
+ 			var url =  "http://www.omdbapi.com/?t=" + this.find + "&y=&plot=full&r=json&apikey=6ebc7ebd"
  			axios.get(url).then(function(response){
-            this.results = response.data //put this data into movies object
+            movies.searchedmovie.obj = response.data;
+            movies.searchedmovie.title = response.data.Title;
+            movies.searchedmovie.dir = response.data.Director;
+            movies.searchedmovie.stars = response.data.Actors;
+            movies.searchedmovie.rating = parseInt(response.data.Metascore);
+            movies.checkScore(movies.searchedmovie.rating);
+ 			})
+ 			
+ 		},
+ 		checkScore: function(score){
+ 			console.log("worked");
+ 			console.log(score);
+ 			if(score > 50){
+ 				this.searchedmovie.bad = false;
+ 			}
+ 			else {
+ 				this.searchedmovie.bad = true;
+ 			}
  		}
+
+
  	}
-
-
- })
-
- var url = "";
-
-
+})
