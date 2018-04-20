@@ -45,6 +45,9 @@ var movies = new Vue({
                         this.searchedmovie.bad = true;
                         this.scoreColor = "green";
                   }
+                  else {
+                        this.scoreColor = "black";
+                  }
             },
             addToList: function(){
                   movies.moviesList.push(movies.searchedmovie.title);
