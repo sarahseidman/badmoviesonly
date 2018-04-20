@@ -11,9 +11,10 @@
 
 	<div id="display">
 
-
+		<div id="searcher">
 		<input placeholder="Search" v-model="find">
 		<button v-on:click="findMovie">Go</button>
+		</div>
 	
 		<div id="searched-movie" v-show="searchedmovie.obj">
 			<h3>{{searchedmovie.title}}</h3>
@@ -30,7 +31,7 @@
 			<h2 id="list-title">My List</h2>
 			<ul v-show="moviesList">
 				<li v-for="movie in moviesList">
-					{{movie}}
+					<button v-on:click="remove(movie)">X</button> {{movie}}
 				</li>
 			</ul>
 		</div>

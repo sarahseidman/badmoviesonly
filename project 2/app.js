@@ -28,8 +28,6 @@ var movies = new Vue({
  			
  		},
  		checkScore: function(score){
- 			console.log("worked");
- 			console.log(score);
  			if(score > 50){
  				this.searchedmovie.bad = false;
  			}
@@ -38,11 +36,19 @@ var movies = new Vue({
  			}
  		},
  		addToList: function(){
- 			console.log(movies.searchedmovie.title);
  			movies.moviesList.push(movies.searchedmovie.title);
 
+ 		},
+ 		remove: function(toRemove){
+ 			for(var i=0; i<movies.moviesList.length; i++){
+ 				if(movies.moviesList[i] == toRemove){
+ 					movies.moviesList.splice(i, 1);
+ 				}
+ 			}
  		}
 
 
  	}
 })
+
+
