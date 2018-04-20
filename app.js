@@ -32,15 +32,16 @@ var movies = new Vue({
             	movies.searchedmovie.rating = "not available";
             }
             movies.checkScore(movies.searchedmovie.rating);
+            movies.find = "";
  			})
- 			
+
  		},
  		checkScore: function(score){
  			if(score > 50){
  				this.searchedmovie.bad = false;
  				this.scoreColor = "red";
  			}
- 			else {
+ 			else if(score < 50) {
  				this.searchedmovie.bad = true;
  				this.scoreColor = "green";
  			}
