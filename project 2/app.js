@@ -10,7 +10,7 @@ var movies = new Vue({
  			bad: true
  		},
  		find: "",
- 		movieslist: [],
+ 		moviesList: [],
 
  	},
 
@@ -36,6 +36,11 @@ var movies = new Vue({
  			else {
  				this.searchedmovie.bad = true;
  			}
+ 		},
+ 		addToList: function(){
+ 			console.log(movies.searchedmovie.title);
+ 			movies.moviesList.push(movies.searchedmovie.title);
+
  		}
 
 

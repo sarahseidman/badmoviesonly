@@ -21,15 +21,17 @@
 			<p>Starring: {{searchedmovie.stars}}</p>
 			<p>Metacritic score: {{searchedmovie.rating}}</p>
 
-			<button v-show="searchedmovie.bad">Add to my list</button>
+			<button v-on:click="addToList" v-show="searchedmovie.bad">Add to my list</button>
 
 		</div>
 
 
 		<div id="list">
 			<h2 id="list-title">My List</h2>
-			<ul>
-				
+			<ul v-show="moviesList">
+				<li v-for="movie in moviesList">
+					{{movie}}
+				</li>
 			</ul>
 		</div>
 		<!-- <pre>{{$data}}</pre> -->
